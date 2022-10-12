@@ -49,6 +49,7 @@ for i in range(6):
     if len(people_dinamic_new) == 1:
         print('Человек угадан! Это', people_dinamic_new[0] + '!')
         break
+     elif len(people_dinamic_new) == 0:
+          print('Такого человека нет в группе К3122(')
+          break
     people_dinamic = people_dinamic_new
-else:
-    print('Такого человека нет в группе К3122(')
