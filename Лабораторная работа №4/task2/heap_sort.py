@@ -29,4 +29,4 @@ def max_local_heap(array, parent_ind, size):
 
 array = [int(i) for i in input("Введите список чисел через пробел: ").split()]
 heap_sort(array)
-print(array)
+print(f"Отсортированный список: {array}")

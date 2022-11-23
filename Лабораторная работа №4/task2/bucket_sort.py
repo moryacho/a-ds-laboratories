@@ -9,7 +9,7 @@ def bucket_sort(array):
         return array
 
     length = len(array)
-    size = (max_value - min_value) / length
+    size = float(max_value - min_value) / length
 
     buckets = [[] for _ in range(length)]
 
@@ -30,5 +30,6 @@ def bucket_sort(array):
     return result
 
 
-array = [float(i) for i in input("Введите список чисел через пробел: ").split()]
-print(bucket_sort(array))
+array = [int(i) for i in input("Введите список чисел через пробел: ").split()]
+sorted_array = bucket_sort(array)
+print(f"Отсортированный список: {sorted_array}")
