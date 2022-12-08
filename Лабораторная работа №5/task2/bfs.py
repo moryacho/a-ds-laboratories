@@ -1,4 +1,4 @@
-adjacency_matrix = {
+adjacency_list = {
     1: [2, 8],
     2: [1, 3, 8],
     3: [2, 4, 8],
@@ -31,7 +31,7 @@ def bfs(start, end, graph):
 
 start = int(input("Введите номер стартовой вершины: "))
 end = int(input("Введите номер конечной вершины: "))
-answer = bfs(start, end, adjacency_matrix)
+answer = bfs(start, end, adjacency_list)
 print(f"Путь от {start} вершины до {end}")
 current = end
 print(end, end=' ')
