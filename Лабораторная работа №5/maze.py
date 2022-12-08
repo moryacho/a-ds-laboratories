@@ -81,15 +81,15 @@ def dfs(maze):
 
     for i in range(height):
         for j in range(width):
-            maze[i][j] = '  '
+            maze[i][j] = '   '
 
     for cell in maze_map_cells:
         cell = list(cell)
-        maze[cell[0]][cell[1]] = '\033[47m  \033[0m'
+        maze[cell[0]][cell[1]] = '\033[47m   \033[0m'
 
     for cell in fwd_path:
         cell = list(cell)
-        maze[cell[0]][cell[1]] = '\033[44m  \033[0m'
+        maze[cell[0]][cell[1]] = '\033[44m   \033[0m'
 
     m = [''.join(i) for i in maze]
     for i in m:
