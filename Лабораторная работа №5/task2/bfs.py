@@ -7,34 +7,39 @@ adjacency_list = {
     6: [5],
     7: [4, 5, 8],
     8: [1, 2, 3, 7],
-    9: [4, 6],
+    9: [4, 6]
 }
 
 
-def bfs(start, end, graph):
+def bfs(start, end, graph, visited):
     n = len(graph)
-    visited = {start: None}
     queue = [start]
 
     while len(queue) > 0:
         current = queue.pop(0)
         if current == end:
-            break
+            return True
 
         next_vs = graph[current]
         for next_v in next_vs:
             if next_v not in visited:
                 queue.append(next_v)
                 visited[next_v] = current
-    return visited
+
+    return False
 
 
 start = int(input("Введите номер стартовой вершины: "))
 end = int(input("Введите номер конечной вершины: "))
-answer = bfs(start, end, adjacency_list)
-print(f"Путь от {start} вершины до {end}")
-current = end
-print(end, end=' ')
-while current != start:
-    current = answer[current]
-    print(f"<- {current}", end=' ')
+visited = {start: None}
+answer = bfs(start, end, adjacency_list, visited)
+
+if answer:
+    print(f"Путь от {start} вершины до {end}")
+    current = end
+    print(end, end=' ')
+    while current != start:
+        current = visited[current]
+        print(f"<- {current}", end=' ')
+else:
+    print("Путь не найден")

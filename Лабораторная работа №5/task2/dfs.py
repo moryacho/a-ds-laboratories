@@ -35,6 +35,7 @@ def hamilton(v):
 
 
 if hamilton(start):
+    print("Цикл найден: ", end="")
     print(*path)
 else:
     print("Гамильтонов цикл не найден")
