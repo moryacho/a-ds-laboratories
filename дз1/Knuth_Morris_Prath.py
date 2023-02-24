@@ -18,12 +18,12 @@ def Knuth_Morris_Prath(text, pattern):
     pattern_len = len(pattern)
     text_len = len(text)
     arr_prefix = arr_pref(pattern)
-    count_list = []
+    count = 0
     i = j = 0
     while i < text_len:
         if text[i] == pattern[j]:
             if j == pattern_len - 1: # если уже по всему образу прошлись, то значит, всё совпало
-                count_list.append(i - pattern_len + 1) # добавляем в список индекс совпадения образа
+                count += 1
                 j = arr_prefix[j]
             else:
                 j += 1 # переходим к след символу
@@ -32,4 +32,4 @@ def Knuth_Morris_Prath(text, pattern):
             j = arr_prefix[j - 1]
         else: # если не совпало и мы на первом символе образа
             i += 1
-    return len(count_list)
+    return count
