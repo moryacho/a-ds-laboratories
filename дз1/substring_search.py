@@ -40,7 +40,7 @@ while True:
     elif algorithm == "3":
         search_algorithm = boyer_moore
     elif  algorithm == "4":
-        search_algorithm = Knuth_Morris_Prath()
+        search_algorithm = Knuth_Morris_Prath
     elif algorithm == "q":
         break
     else:
