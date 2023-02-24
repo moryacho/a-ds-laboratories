@@ -26,7 +26,7 @@ def Knuth_Morris_Prath(text, pattern):
                 count += 1
                 j = arr_prefix[j]
             else:
-                j += 1 # переходим к след символу
+                j += 1
             i += 1
         elif j > 0: # если не совпало, но у нас не первый символ образа сравнивается
             j = arr_prefix[j - 1]
