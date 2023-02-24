@@ -2,6 +2,7 @@ from boyer_moore import boyer_moore
 from naive import naive
 from rabina_karpa import rabina_karpa
 from Knuth_Morris_Prath import Knuth_Morris_Prath
+from timeit import default_timer
 
 
 def search_substring_by(search_algorithm):
@@ -14,7 +15,7 @@ def search_substring_by(search_algorithm):
 
     max_symbol = '00'
     max_count = 0
-
+    t = default_timer()
     for i in range(10):
         for j in range(10):
             curr_pattern = str(i) + str(j)
@@ -24,6 +25,8 @@ def search_substring_by(search_algorithm):
                 max_symbol = curr_pattern
 
     print(max_symbol, max_count)
+    t_search = default_timer() - t
+    print("Время поиска:", t_search)
 
 
 while True:
