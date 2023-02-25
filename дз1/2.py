@@ -11,10 +11,16 @@ def normalize_string(string):
     return normalized_string
 
 
+def get_ord(symbol):
+    if symbol != " ":
+        return ord(symbol) - 1072
+    return 33
+
+
 def hash_code(word):
     hash = 0
     for s in word:
-        hash += hash * 37 + ord(s)
+        hash += hash * 37 + get_ord(s)
     return hash
 
 
@@ -36,31 +42,24 @@ abstract = abstract.split(" ")
 wiki_page = wiki_page.split(" ")
 
 # 5. Для каждого слова вычисляем хэш
-hash_abstract = []
-for word in abstract:
-    hash_abstract.append(hash_code(word))
+abstract_triples = [" ".join(abstract[i: i + 3]) for i in range(len(abstract) - 2)]
+hash_abstract_triples = []
+for triple in abstract_triples:
+    hash_abstract_triples.append(hash_code(triple))
 
-hash_wiki_page = []
-for word in wiki_page:
-    hash_wiki_page.append(hash_code(word))
+wiki_page_triples = [" ".join(wiki_page[i: i + 3]) for i in range(len(wiki_page) - 2)]
+hash_wiki_page_triples = []
+for triple in wiki_page_triples:
+    hash_wiki_page_triples.append(hash_code(triple))
+hash_wiki_page_triples = set(hash_wiki_page_triples)
 
-# 6. Осталось всего лишь посчитать процент плагиата..
-triple_hash_abstract = []
-for i in range(len(hash_abstract) - 2):
-    triple_hash_abstract.append(hash_abstract[i] + hash_abstract[i + 1] + hash_abstract[i + 2])
-
-triple_hash_wiki_page = []
-for i in range(len(hash_wiki_page) - 2):
-    triple_hash_wiki_page.append(hash_wiki_page[i] + hash_wiki_page[i + 1] + hash_wiki_page[i + 2])
-
-triple_hash_wiki_page_set = set(triple_hash_wiki_page)
-
+# 6. Осталось всего лишь посчитать процент плагиата...(
 count_words = 0
 is_last_triple_plagiarized = False
-for triple in triple_hash_abstract:
-    if triple_hash_wiki_page_set.__contains__(triple):
+for triple in hash_abstract_triples:
+    if triple in hash_wiki_page_triples:
         count_words += 1 if is_last_triple_plagiarized else 3
 
-# не учитываем, что некоторые слова и тройки могут давать одинаковый хэш :(
-print(len(hash_abstract))
+print(len(abstract))
 print(count_words)
+print("Процент плагиата:", round(100 * count_words / len(abstract), 2))
