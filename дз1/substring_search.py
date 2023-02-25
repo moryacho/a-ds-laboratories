@@ -1,7 +1,7 @@
 from boyer_moore import boyer_moore
 from naive import naive
 from rabina_karpa import rabina_karpa
-from Knuth_Morris_Prath import Knuth_Morris_Prath
+from knuth_morris_prath import knuth_morris_prath
 from timeit import default_timer
 
 
@@ -42,8 +42,8 @@ while True:
         search_algorithm = rabina_karpa
     elif algorithm == "3":
         search_algorithm = boyer_moore
-    elif  algorithm == "4":
-        search_algorithm = Knuth_Morris_Prath
+    elif algorithm == "4":
+        search_algorithm = knuth_morris_prath
     elif algorithm == "q":
         break
     else:

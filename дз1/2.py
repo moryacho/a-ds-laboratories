@@ -1,4 +1,5 @@
-import docx, wikipedia
+import docx
+import wikipedia
 
 doc = docx.Document("Жизнь.docx")
 text_par = []
@@ -9,7 +10,3 @@ text = ' '.join(text_par)
 
 wikipedia.set_lang("ru")
 wiki_page = wikipedia.page("Жизнь").content
-
-
-
-
