@@ -59,6 +59,9 @@ is_last_triple_plagiarized = False
 for triple in hash_abstract_triples:
     if triple in hash_wiki_page_triples:
         count_words += 1 if is_last_triple_plagiarized else 3
+        is_last_triple_plagiarized = True
+    else:
+        is_last_triple_plagiarized = False
 
 print(len(abstract))
 print(count_words)
