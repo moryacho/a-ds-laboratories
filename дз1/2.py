@@ -41,7 +41,7 @@ wiki_page = normalize_string(wikipedia.page("Жизнь").content)
 abstract = abstract.split(" ")
 wiki_page = wiki_page.split(" ")
 
-# 5. Для каждого слова вычисляем хэш
+# 5. Для каждой тройки слов вычисляем хэш
 abstract_triples = [" ".join(abstract[i: i + 3]) for i in range(len(abstract) - 2)]
 hash_abstract_triples = []
 for triple in abstract_triples:
@@ -63,6 +63,6 @@ for triple in hash_abstract_triples:
     else:
         is_last_triple_plagiarized = False
 
-print(len(abstract))
-print(count_words)
-print("Процент плагиата:", round(100 * count_words / len(abstract), 2))
+print(f"Количество слов в реферате: {len(abstract)}")
+print(f"Количество совпавших слов: {count_words}")
+print(f"Плагиат: {round(100 * count_words / len(abstract), 2)}%")

@@ -1,8 +1,9 @@
+from timeit import default_timer
+
 from boyer_moore import boyer_moore
+from knuth_morris_prath import knuth_morris_prath
 from naive import naive
 from rabina_karpa import rabina_karpa
-from knuth_morris_prath import knuth_morris_prath
-from timeit import default_timer
 
 
 def search_substring_by(search_algorithm):
@@ -24,8 +25,9 @@ def search_substring_by(search_algorithm):
                 max_count = curr_count
                 max_symbol = curr_pattern
 
-    print(max_symbol, max_count)
     t_search = default_timer() - t
+    print(f"Наиболее часто встречающаяся комбинация двух цифр: {max_symbol}")
+    print(f"Количество раз: {max_count}")
     print("Время поиска:", t_search)
 
 
