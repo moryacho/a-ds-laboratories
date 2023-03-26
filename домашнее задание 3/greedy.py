@@ -24,6 +24,7 @@ for i in range(4):
     coins[s] = m
     nominals.append(s)
 nominals.sort(reverse=True)
+print()
 
 for i in nominals:
     use_count = count(i)
