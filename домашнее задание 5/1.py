@@ -1,13 +1,10 @@
-"""Paзpaбoтaйтe aлгopитм, пpoвepяющий peзультaт игpы в кpeстики-нoлики (3х3)."""
+"""Paзpaбoтaйтe aлгopитм, пpoвepяющий peзультaт игpы в кpeстикинoлики (3х3)."""
 
 
 def get_sets(lines: list) -> list:
     sets = []
     for line in lines:
         sets.append(set(line))
-
-    for i in range(3):
-        sets.append(set([lines[0][i], lines[1][i], lines[2][i]]))
 
     diag_1 = set([lines[0][0], lines[1][1], lines[2][2]])
     diag_2 = set([lines[0][2], lines[1][1], lines[2][0]])
